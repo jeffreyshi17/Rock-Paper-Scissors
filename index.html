@@ -1,5 +1,6 @@
 <html>
-    <head>
+
+<head>
     <title>Cooler than Fred's Rock Paper Scissors</title>
     <style type="text/css">
         body {
@@ -8,7 +9,7 @@
             line-height: 1.6;
             font-size: 18px;
             color: #444;
-            padding: 0 10px
+            padding: 0 10px;
         }
         
         h1,
@@ -20,16 +21,27 @@
 </head>
 
 <body>
+    <center>
+        <h1> Rock Paper Scissors!</h1>
+        <h2> Choose your weapon...</h2> <img height="42" width="42" src="http://megaicons.net/static/img/icons_sizes/8/178/512/rock-paper-scissors-rock-icon.png" id="rock"> <img height="42" width="42" src="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Paper.ico" id="paper"> <img height="42" width="42" src="http://megaicons.net/static/img/icons_sizes/8/178/256/rock-paper-scissors-scissors-icon.png" id="scissors">
+        <br>
+        <h id="message">No games played yet</h>
+        <br>
+        <h id="WTL">Wins: 0, Ties: 0, Losses: 0</h>
+    </center>
     <script>
         var wins = 0;
         var losses = 0;
         var ties = 0;
-        var thrown = "";
-
-        function throwRock() {
-            thrown = "r";
-            check();
-        }
+        document.getElementById("rock").addEventListener("click", function () {
+            check("r");
+        });
+        document.getElementById("paper").addEventListener("click", function () {
+            check("p");
+        });
+        document.getElementById("scissors").addEventListener("click", function () {
+            check("s");
+        });
 
         function throwPaper() {
             thrown = "p";
@@ -42,7 +54,7 @@
         }
         var options = ["rock", "paper", "scissors"]
 
-        function check() {
+        function check(thrown) {
             var rand = Math.floor(Math.random() * 3);
             var mythrow = "rps".indexOf(thrown) - rand + 1;
             if (mythrow == -1) mythrow = 2;
@@ -63,13 +75,6 @@
             document.getElementById("WTL").innerHTML = "Wins: " + wins + ", Ties: " + ties + ", Losses: " + losses;
         }
     </script>
-    <center>
-        <h1> Rock Paper Scissors!</h1>
-        <h2> Choose your weapon...</h2> <img height="42" width="42" src="http://megaicons.net/static/img/icons_sizes/8/178/512/rock-paper-scissors-rock-icon.png" onclick="throwRock()" id="rock"> <img height="42" width="42" src="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Paper.ico" onclick="throwPaper()" id="paper"> <img height="42" width="42" src="http://megaicons.net/static/img/icons_sizes/8/178/256/rock-paper-scissors-scissors-icon.png" onclick="throwScissors()" id="scissors">
-        <br>
-        <h id="message">No games played yet</h>
-        <br>
-        <h id="WTL">Wins: 0, Ties: 0, Losses: 0</h>
-    </center>
 </body>
+
 </html>
