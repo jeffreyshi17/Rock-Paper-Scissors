@@ -11,15 +11,6 @@ document.getElementById("scissors").addEventListener("click", function () {
     check("s");
 });
 
-function throwPaper() {
-    thrown = "p";
-    check();
-}
-
-function throwScissors() {
-    thrown = "s";
-    check();
-}
 var options = ["rock", "paper", "scissors"]
 
 function check(thrown) {
